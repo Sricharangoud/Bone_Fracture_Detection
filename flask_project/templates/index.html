@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bone Fracture X-ray Detection</title>
+    <!-- Link to our CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🦴 Bone Fracture Detection</h1>
+            <p>Upload an X-ray image to detect Fractured or Normal bone.</p>
+        </header>
+
+        <main>
+            <!-- Upload Form -->
+            <form id="uploadForm">
+                <div class="upload-area" id="dropZone">
+                    <input type="file" id="fileInput" accept="image/jpeg, image/png, image/jpg" hidden>
+                    
+                    <div class="upload-text" id="uploadText">
+                        <span class="icon">📁</span>
+                        <p>Click to browse or drag & drop an X-ray image</p>
+                        <small>Supports JPG, JPEG, PNG</small>
+                    </div>
+                    
+                    <!-- Image Preview -->
+                    <img id="imagePreview" class="hidden" alt="X-ray Preview">
+                </div>
+
+                <button type="submit" id="submitBtn" disabled>Analyze X-ray</button>
+            </form>
+
+            <!-- Loading Indicator -->
+            <div id="loading" class="hidden">
+                <div class="spinner"></div>
+                <p>Analyzing image with AI...</p>
+            </div>
+
+            <!-- Prediction Result Section -->
+            <div id="resultSection" class="hidden">
+                <div class="result-card">
+                    <h2 id="resultTitle"></h2>
+                    <p id="confidenceScore"></p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Link to our JavaScript file -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
